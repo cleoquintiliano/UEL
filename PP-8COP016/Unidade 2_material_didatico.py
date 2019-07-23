@@ -38,10 +38,10 @@ class Livro(MaterialDidatico):
 
 	def __init__(self, titulo, autor, capitulos, paginas):
 		# CHAMAR O SUPER DA CLASSE MÃE
-		super().__init__(autor, titulo)
+		super().__init__(titulo, autor)
 		# CRIAR 2 NOVOS ATRIBUTOS: CAPITULOS E PAGINAS
-		self.capitulos = capitulos
-		self.paginas = paginas
+		self._capitulos = capitulos
+		self._paginas = paginas
 
 	def estudar(self):
 		print("Lendo e refletindo a leitura")
@@ -59,7 +59,7 @@ class Livro(MaterialDidatico):
 
 	def __len__(self):
 		# RETORNE O NÚMERO DE PÁGINAS VEZES 5
-		return self.paginas * 5
+		return self._paginas * 5
 
 # FAZER A CLASSE LIVRODIGITAL HERDAR DE LIVRO
 class LivroDigital(Livro):
@@ -67,19 +67,27 @@ class LivroDigital(Livro):
 	def __init__(self, titulo, autor, capitulos, paginas, pasta_pc):
 		super().__init__(titulo, autor, capitulos, paginas)
 		self._pasta_pc = pasta_pc
-#******************************-RETORMAR DAQUI-******************************#
 	# REESCREVA OS MÉTODOS dar_uma_olhada(), abrir() e retomar()
-	# ADPTANDO AS MENSAGENS PARA UM LIVRO DIGITAL
+	# ADAPTANDO AS MENSAGENS PARA UM LIVRO DIGITAL
+	def dar_uma_olhada(self):
+		print("Dando uma olhada no sumário pelo arquivo digital...")
 
+	def abrir(self):
+		print("Clicando no arquivo digital.")
+
+	def retomar(self):
+		print("Dando um scroll até a página correta.")
 
 # FAZER A CLASSE SLIDE HERDAR DE MATERIALDIDATICO
-class Slide:
+class Slide(MaterialDidatico):
 	
 	def __init__(self, titulo, autor, num_slides, tam_arquivo):
-		pass
 		# CHAMAR O SUPER DA CLASSE MÃE
-		# CRIAR 2 NOVOS ATRIBUTOS: num_slides E tam_arquivo
-	
+		super().__init__(titulo, autor)
+		# CRIAR 2 NOVOS ATRIBUTOS: num_slides e tam_arquivo
+		self._num_slides = num_slides
+		self._tam_arquivo = tam_arquivo
+
 	# REESCREVA OS MÉTODOS estudar() e dar_uma_olhada()
 
 	def abrir(self):

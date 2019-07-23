@@ -102,7 +102,7 @@ class Slide(MaterialDidatico):
 		return int(self._num_slides * 1.5)
 
 # FAZER A CLASSE VIDEOAULA HERDAR DE MATERIALDIDATICO
-class VideoAula:
+class VideoAula(MaterialDidatico):
 	
 	def __init__(self, titulo, autor, duracao):
 		super().__init__(titulo, autor)
@@ -122,28 +122,43 @@ class VideoAula:
 	
 	# REESCREVA O MÉTODO __len__ PARA QUE ELE RETORNE
 	# A DURAÇÃO DA VIDEOAULA
-
+	def __len__(self):
+		return self._duracao
 
 # FAZER A CLASSE CODIGO HERDAR DE MATERIALDIDATICO
-class Codigo:
+class Codigo(MaterialDidatico):
 
 	def __init__(self, nome, autor, linhas, qtdade_funcoes, descricao):
-		pass
 		# CHAMAR O SUPER DA CLASSE MÃE
-		# CRIAR 2 NOVOS ATRIBUTOS: linhas, qtdade_funcoes e descricao
+		super().__init__(nome, autor)
+		# CRIAR 3 NOVOS ATRIBUTOS: linhas, qtdade_funcoes e descricao
+		self._linhas = linhas
+		self._qtdade_funcoes = qtdade_funcoes
+		self._descricao = descricao
 
 	def estudar(self):
 		print(self.__str__() + ": " + "Analisando e entendendo a sua lógica...")
 
 	# REESCREVA OS MÉTODOS dar_uma_olhada(), abrir() e retomar()
+	def dar_uma_olhada(self):
+		print("Dando uma olhada no código")
+
+	def abrir(self):
+		print("Abrindo o arquivo do código em um editor")
+
+	def retomar(self):
+		print("Retomando no código na linha da última alteração")
 
 	# REESCREVA O MÉTODO __len__ PARA QUE ELE RETORNE A
 	# QUANTIDADE DE LINHAS / 2 (E CONVERTA PARA INTEIRO)
+	def __len__(self):
+		return int(self._linhas / 2)
 
-
-# EXPLICAR 1) QUAL O PAPEL DA CLASSE MATERIALESTUDO?
+# EXPLICAR
+# 1) QUAL O PAPEL DA CLASSE MATERIALESTUDO?
 # 2) O QUE ELA FAZ?
 # 3) ONDE OCORRE O POLIMORFISMO?
+
 class MaterialEstudo:
 
 	def __init__(self, disciplina, unidade):

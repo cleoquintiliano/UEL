@@ -40,8 +40,8 @@ class Livro(MaterialDidatico):
 		# CHAMAR O SUPER DA CLASSE MÃE
 		super().__init__(autor, titulo)
 		# CRIAR 2 NOVOS ATRIBUTOS: CAPITULOS E PAGINAS
-		self._capitulos = capitulos
-		self._paginas = paginas
+		self.capitulos = capitulos
+		self.paginas = paginas
 
 	def estudar(self):
 		print("Lendo e refletindo a leitura")
@@ -51,24 +51,23 @@ class Livro(MaterialDidatico):
 
 	def abrir(self):
 		# IMPLEMENTE O MÉTODO
-		print("Abrir o livro para estudar")
+		print("Abrindo o livro para estudar")
 
 	def retomar(self):
 		# IMPLEMENTE O MÉTODO
-		print("Retomar leitura")
-#####PAREI AQUI
+		print("Retomando a leitura do livro")
+
 	def __len__(self):
 		# RETORNE O NÚMERO DE PÁGINAS VEZES 5
-		return self._paginas * 5
-
+		return self.paginas * 5
 
 # FAZER A CLASSE LIVRODIGITAL HERDAR DE LIVRO
-class LivroDigital:
+class LivroDigital(Livro):
 
 	def __init__(self, titulo, autor, capitulos, paginas, pasta_pc):
 		super().__init__(titulo, autor, capitulos, paginas)
 		self._pasta_pc = pasta_pc
-
+#******************************-RETORMAR DAQUI-******************************#
 	# REESCREVA OS MÉTODOS dar_uma_olhada(), abrir() e retomar()
 	# ADPTANDO AS MENSAGENS PARA UM LIVRO DIGITAL
 
@@ -133,7 +132,7 @@ class Codigo:
 	# QUANTIDADE DE LINHAS / 2 (E CONVERTA PARA INTEIRO)
 
 
-# EXPLICAR 1) QUAL O PAPEL DA CLASSE MATERALESTUDO?
+# EXPLICAR 1) QUAL O PAPEL DA CLASSE MATERIALESTUDO?
 # 2) O QUE ELA FAZ?
 # 3) ONDE OCORRE O POLIMORFISMO?
 class MaterialEstudo:

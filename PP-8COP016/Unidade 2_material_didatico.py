@@ -38,8 +38,10 @@ class Livro(MaterialDidatico):
 
 	def __init__(self, titulo, autor, capitulos, paginas):
 		# CHAMAR O SUPER DA CLASSE MÃE
-		MaterialDidatico.__init__(autor, titulo)
+		super().__init__(autor, titulo)
 		# CRIAR 2 NOVOS ATRIBUTOS: CAPITULOS E PAGINAS
+		self._capitulos = capitulos
+		self._paginas = paginas
 
 	def estudar(self):
 		print("Lendo e refletindo a leitura")
@@ -48,16 +50,16 @@ class Livro(MaterialDidatico):
 		print("Dando uma olhada no sumário, uma folheada...")
 
 	def abrir(self):
-		pass
 		# IMPLEMENTE O MÉTODO
+		print("Abrir o livro para estudar")
 
 	def retomar(self):
-		pass
 		# IMPLEMENTE O MÉTODO
-
+		print("Retomar leitura")
+#####PAREI AQUI
 	def __len__(self):
-		pass
 		# RETORNE O NÚMERO DE PÁGINAS VEZES 5
+		return self._paginas * 5
 
 
 # FAZER A CLASSE LIVRODIGITAL HERDAR DE LIVRO

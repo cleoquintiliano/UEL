@@ -98,7 +98,8 @@ class Slide(MaterialDidatico):
 
 	# REESCREVA O MÉTODO __len__ PARA QUE ELE RETORNE O NÚMERO
 	# SLIDES VEZES 1.5 (E CONVERTA PARA INTEIRO ANTES DE RETORNAR)
-	
+	def __len__(self):
+		return int(self._num_slides * 1.5)
 
 # FAZER A CLASSE VIDEOAULA HERDAR DE MATERIALDIDATICO
 class VideoAula:
